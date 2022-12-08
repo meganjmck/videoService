@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+    <title>Video: Signup or Login</title>
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="JS/app.js"></script>
+    </head>
+
+  <body>
+    <div class="container">
+        <!--signup or login form redirects to index.html onsubmit-->
+        <h3>Login</h3>
+        <form action="index.html" id="loginForm">
+            <div class="mb-2">
+              <label for="username"><b>Username</b></label>
+              <input id="uname" type="text" placeholder="Enter Username" required>
+            </div>
+            <div class="mb-2">
+              <label for="userPassword"><b>Password</b></label>
+              <input id="pwd" type="text" placeholder="Enter Password" required>
+            </div>
+          <div class="col-2">
+            <button id="loginValidation" class="btn btn-primary" type="submit">Login</button>
+          </div>
+        </form><br/><br/>
+
+        <!--New User Form-->
+        <div id="createUser" class="col-4 p-3">
+          <h3><u>Create user</u></h3>
+          <form style="font-size: 10pt;" id="newUserForm">
+            <div class="mb-2">
+              <label for="username" class="form-label">username</label>
+              <input type="text" class="form-control" placeholder="Enter username" id="username" required>
+            </div>
+            <div class="mb-2">
+              <label for="userPassword" class="form-label">Password</label>
+              <input type="text" class="form-control" placeholder="Enter Password" id="userPassword" required>
+            </div>
+            <div class="mb-2">
+              <label for="userRole" class="form-label">User Role</label>
+              <select name="userRole" id="userRole" class="form-select">
+                <option value="consumer">Consumer</option>
+                <option value="creator">Creator</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <button type="button" id="subNewUser" class="btn btn-primary">Submit</button> <br/><br/>
+          </form>
+        </div> <!--new user form-->
+    </div> <!--container-->
+
+</body>
+</html>

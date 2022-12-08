@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" ng-app="Dashboard">
+  <head>
+    <meta charset="UTF-8">
+    <title>Video Tracker</title>
+      <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+      <script type="text/javascript" src="JS/bootstrap.js"></script>
+      <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+      <script type="text/javascript" src="JS/app.js"></script>
+      <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+      <script type="text/javascript">
+      // function to hide or show div based on user role 
+      function showDiv(select){
+        if (select.value == "admin") { // admins can add videos, view users or add a new user 
+          document.getElementById('hiddenUserlist').style.display = "block";
+          document.getElementById('addVideo').style.display = "block";
+          document.getElementById('createUser').style.display = "block";
+          document.getElementById('deleteVideo').style.display = "block";
+        } else if (select.value == "creator") { // creators can view and add videos 
+          document.getElementById('addVideo').style.display = "block";
+          document.getElementById('hiddenUserlist').style.display = "none";
+          document.getElementById('createUser').style.display = "none";
+          document.getElementById('deleteVideo').style.display = "block";
+        } else { // consumers can only view videos 
+          document.getElementById('hiddenUserlist').style.display = "none";
+          document.getElementById('addVideo').style.display = "none";   
+          document.getElementById('createUser').style.display = "none";
+        }
+      }
+        </script>
+        <script>
+          // click counter for likes
+          function likeCounter(id) {
+            if (typeof(Storage) !== "undefined") {
+              if (localStorage[id]) {
+                localStorage[id] = Number(localStorage[id]) + 1;
+              } else {
+                localStorage[id] = 1;
+              }
+              document.getElementById("likeCounter").textContent = localStorage[id] + " Like(s)";
+            }
+          };
+          </script>
+      <style>
+      /* styling to hide divs */
+      #hiddenUserlist, #addVideo, #createUser {
+        display: none;
+      }
+      </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!--logout form-->
+      <form action="login.html" method='post'>
+        <input type='submit' name='logout' value='Logout'>
+      </form>
+
+      <!--testing user role access-->
+      <div id="userRoleTest" class="col-3 mb-2">
+        <label for="userRoleTest" class="form-label">User Role:</label>
+        <select name="userRoleTest" id="userRoleTest" class="form-select" onchange="showDiv(this)">
+          <option value="consumer">consumer</option>
+          <option value="admin">admin</option>
+          <option value="creator">creator</option>
+        </select>
+      </div>
+
+        <!--Header-->
+        <div class="row align-items-start">
+            <div class="col-2"></div>
+            <div class="col-8" style="text-align: center;">
+              <h3>Video Share</h3>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <!--ADMIN ONLY: view Users area Area-->
+        <div id="hiddenUserlist" class="row align-items-start p-3">
+          <div class="col-2"></div>
+          <div class="col-8" style="text-align: left;">
+            <div style="padding:5px;">
+              <button id="getUsers" type="button" class="btn btn-primary">View Users</button>
+            </div>
+            <div id="UserList">
+              <h5>Please click the View Users button if you wish to view users on the system.</h5>
+            </div>
+          </div><br/>
+          <div class="col-2"></div><br/>
+      </div>
+
+      <!--ADMIN ONLY: New User Form-->
+      <div id="createUser" class="col-4 p-3">
+        <h3><u>Create user</u></h3>
+        <form style="font-size: 10pt;" id="newUserForm">
+          <div class="mb-2">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="Enter username" id="username" required>
+          </div>
+          <div class="mb-2">
+            <label for="userPassword" class="form-label">Password</label>
+            <input type="text" class="form-control" placeholder="Enter Password" id="userPassword" required>
+          </div>
+          <div class="mb-2">
+            <label for="userRole" class="form-label">User Role</label>
+            <select name="userRole" id="userRole" class="form-select">
+              <option value="consumer">Consumer</option>
+              <option value="creator">Creator</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="button" id="subNewUser" class="btn btn-primary">Submit</button> <br/><br/>
+        </form>
+      </div> <!--new user form-->
+
+        <!--CREATOR & ADMIN ONLY: New Video Form-->
+        <div id="addVideo" class="row align-items-start p-3">
+            <div class="col-2"></div>
+            <div class="col-8" style="text-align: left; border-bottom:1px solid #222222;">
+              <h4><u>Add Video</u></h4>
+              <form style="font-size: 10pt;" id="newVideoForm">
+                <div class="mb-2">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title">
+                </div>
+                <div class="mb-2">
+                  <label for="producer" class="form-label">Producer</label>
+                  <input type="text" class="form-control" id="producer">
+                </div>
+                <div class="mb-2">
+                  <label for="publisher" class="form-label">Publisher</label>
+                  <input type="text" class="form-control" id="publisher">
+                </div>
+                <div class="mb-2">
+                  <label for="genre" class="form-label">Genre</label>
+                  <select name="genre" id="genre" class="form-select">
+                    <option value="horror">Horror</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="drama">Drama</option>
+                    <option value="romance">Romance</option>
+                  </select>
+                </div>
+                <div class="mb-2">
+                  <label for="ageRating" class="form-label">Age Rating</label>
+                  <select name="ageRating" id="ageRating" class="form-select">
+                    <option value="PG">PG</option>
+                    <option value="12">12</option>
+                    <option value="12A">12A</option>
+                    <option value="15">15</option>
+                    <option value="18">18</option>
+                  </select>
+                </div>
+                <div class="mb-2">
+                  <label for="username" class="form-label">User Name</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="mb-2">
+                  <label for="userID" class="form-label">User ID</label>
+                  <input type="text" class="form-control" id="userID">
+                </div>
+                <div class="mb-2">
+                  <label for="UpFile" class="form-label">File to Upload</label>
+                  <input type="file" class="form-control" id="UpFile">
+                </div class="text-align-center">
+                <button type="button" id="subNewVideo" class="btn btn-primary">Submit</button> <br/><br/>
+              </form>
+            </div>
+        </div>
+
+        <!--view videos Area-->
+        <div style="display: block;" class="row align-items-star p-3">
+            <div class="col-2"></div>
+            <div class="col-8" style="text-align: left;">
+              <div style="padding:5px;">
+                <button id="getVideos" type="button" class="btn btn-primary">View Videos</button>
+              </div>
+              <div id="VideoList">
+                <h4>Please click the View Videos button if you wish to view videos on the system.</h4><br />
+              </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+    </div>
+
+  </body>
+</html>
