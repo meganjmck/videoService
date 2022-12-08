@@ -83,8 +83,6 @@ function getVideos() {
     $.each(data, function (key, val) {
       items.push("<hr />");
       items.push("<div><video controls src='" + BLOB_ACCOUNT + val["filepath"] +"' width='400' type='video/mp4'></video></div><br />");
-      items.push('<button type="button" id="likeCounter" onclick="likeCounter()" class="btn btn-info">Like</button>');
-      items.push('<button type="button" id="dislikes" class="btn btn-danger">Dislike</button><br />');
       items.push("Title: " + val["title"] + "<br />");
       items.push("Producer: " + val["producer"] + "<br />");
       items.push("Publisher: " + val["publisher"] + "<br />");
