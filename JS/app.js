@@ -82,7 +82,7 @@ function getVideos() {
     //Iterate through the returned records and build HTML, incorporating the key values of the record in the data
     $.each(data, function (key, val) {
       items.push("<hr />");
-      items.push("<div><video controls src='" + BLOB_ACCOUNT + val["filepath"] +"' width='400' type='video/mp4'/></div><br />");
+      items.push("<div><video controls src='" + BLOB_ACCOUNT + val["filepath"] +"' width='400' type='video/mp4'></video></div><br />");
       items.push('<button type="button" id="likeCounter" onclick="likeCounter()" class="btn btn-info">Like</button>');
       items.push('<button type="button" id="dislikes" class="btn btn-danger">Dislike</button><br />');
       items.push("Title: " + val["title"] + "<br />");
