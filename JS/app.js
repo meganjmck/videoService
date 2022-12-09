@@ -89,9 +89,8 @@ function getVideos() {
       items.push("Genre: " + val["genre"] + "<br />");
       items.push("Age Rating: " + val["ageRating"] + "<br />");
       items.push("Uploaded by: " + val["userName"] + " (user id: " + val["userID"] + ")<br />");
-      items.push('<button type="button" id="deleteVideo" style="display: none;" class="btn btn-danger" onclick="deleteVideo(\''+val["id"] +'\')">Delete</button><br/>');
+      items.push('<button type="button" id="deleteVideo" style="visiblity: hidden;" class="btn btn-danger" onclick="deleteVideo(\''+val["id"] +'\')">Delete</button><br/>');
     });
-    
     //Clear the videoList div
     $("#VideoList").empty();
     //Append the contents of the items array to the VideoList Div

@@ -17,31 +17,20 @@
           document.getElementById('addVideo').style.display = "block";
           document.getElementById('createUser').style.display = "block";
           document.getElementById('deleteVideo').style.display = "block";
+          document.getElementById('deleteVideo').style.visibility = "visible";
         } else if (select.value == "creator") { // creators can view and add videos 
           document.getElementById('addVideo').style.display = "block";
           document.getElementById('hiddenUserlist').style.display = "none";
           document.getElementById('createUser').style.display = "none";
-          document.getElementById('deleteVideo').style.display = "block";
+          document.getElementById('deleteVideo').style.visibility = "visible";
         } else { // consumers can only view videos 
           document.getElementById('hiddenUserlist').style.display = "none";
           document.getElementById('addVideo').style.display = "none";   
           document.getElementById('createUser').style.display = "none";
+          document.getElementById('deleteVideo').style.visibility = "hidden";
         }
       }
         </script>
-        <script>
-          // click counter for likes
-          function likeCounter(id) {
-            if (typeof(Storage) !== "undefined") {
-              if (localStorage[id]) {
-                localStorage[id] = Number(localStorage[id]) + 1;
-              } else {
-                localStorage[id] = 1;
-              }
-              document.getElementById("likeCounter").textContent = localStorage[id] + " Like(s)";
-            }
-          };
-          </script>
       <style>
       /* styling to hide divs */
       #hiddenUserlist, #addVideo, #createUser {
@@ -51,12 +40,6 @@
   </head>
 
   <body>
-    <div class="container">
-      <!--logout form-->
-      <form action="login.html" method='post'>
-        <input type='submit' name='logout' value='Logout'>
-      </form>
-
       <!--testing user role access-->
       <div id="userRoleTest" class="col-3 mb-2">
         <label for="userRoleTest" class="form-label">User Role:</label>
