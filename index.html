@@ -17,23 +17,23 @@
           document.getElementById('addVideo').style.display = "block";
           document.getElementById('createUser').style.display = "block";
           document.getElementById('deleteVideo').style.display = "block";
-          document.getElementById('deleteVideo').style.visibility = "visible";
+          document.getElementById('deleteVideo').style.display = "block";
         } else if (select.value == "creator") { // creators can view and add videos 
           document.getElementById('addVideo').style.display = "block";
           document.getElementById('hiddenUserlist').style.display = "none";
           document.getElementById('createUser').style.display = "none";
-          document.getElementById('deleteVideo').style.visibility = "visible";
+          document.getElementById('deleteVideo').style.display = "block";
         } else { // consumers can only view videos 
           document.getElementById('hiddenUserlist').style.display = "none";
           document.getElementById('addVideo').style.display = "none";   
           document.getElementById('createUser').style.display = "none";
-          document.getElementById('deleteVideo').style.visibility = "hidden";
+          document.getElementById('deleteVideo').style.display = "none";
         }
       }
         </script>
       <style>
       /* styling to hide divs */
-      #hiddenUserlist, #addVideo, #createUser {
+      #hiddenUserlist, #addVideo, #createUser, #deleteVideo {
         display: none;
       }
       </style>
