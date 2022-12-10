@@ -16,8 +16,8 @@ DIAURI0="https://prod-01.centralus.logic.azure.com/workflows/c3ed74230f3845fcbe2
 DIAURI1="?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PIqaZbQRRIYlMKJ-OzltQAF_NsTaxi2A_EC1u9Y1sOU";
 
 // delete video
-VIDEO_DIA0="https://prod-02.centralus.logic.azure.com/workflows/987baceb086749a0a351caf7b6ad3e57/triggers/manual/paths/invoke/rest/v1/videos/"; 
-VIDEO_DIA1="?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=s93oxxZr2bD6lPPoIlsWaN-K-d14aoUlXZNUQJjolRU"
+VIDEO_DIAURI0="https://prod-02.centralus.logic.azure.com/workflows/987baceb086749a0a351caf7b6ad3e57/triggers/manual/paths/invoke/rest/v1/videos/"; 
+VIDEO_DIAURI1="?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=s93oxxZr2bD6lPPoIlsWaN-K-d14aoUlXZNUQJjolRU"
 
 // blob account
 BLOB_ACCOUNT="https://blobstoragecom682mm.blob.core.windows.net";
