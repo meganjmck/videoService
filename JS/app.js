@@ -88,7 +88,7 @@ function getVideos() {
       items.push("Publisher: " + val["publisher"] + "<br />");
       items.push("Genre: " + val["genre"] + "<br />");
       items.push("Age Rating: " + val["ageRating"] + "<br />");
-      items.push("Uploaded by: " + val["userName"] + " (user id: " + val["userID"] + ")<br />");
+      items.push("Uploaded by: " + val["username"] + " (user id: " + val["userID"] + ")<br />");
       items.push('<button type="button" id="deleteVideo" class="btn btn-danger" onclick="deleteVideo(\''+val["id"] +'\')">Delete</button><br/>');
     });
     //Clear the videoList div
