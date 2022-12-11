@@ -56,7 +56,7 @@ function submitNewVideo() {
   submitData.append("publisher", $("#publisher").val());
   submitData.append("genre", $("#genre").val());
   submitData.append("ageRating", $("#ageRating").val());
-  submitData.append("userName", $("#username").val());
+  submitData.append("username", $("#username").val());
   submitData.append("userID", $("#userID").val());
   submitData.append("File", $("#UpFile")[0].files[0]);
   // Post the form data to the endpoint, note the need to set the content type header
